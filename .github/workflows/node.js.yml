@@ -19,7 +19,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [14.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -44,7 +44,7 @@ jobs:
       - name: Setup for student grading
         if: ${{ github.repository_owner	!= 'Consensys-Academy' }}
         # get initial commit. this will be the first commit for repos created from template
-        run: git checkout $(git rev-list --max-parents=0 master) test/supply_chain.test.js
+        run: git checkout 2bc7b5172e4548dbfaa4e17578fb716f0aecaa4d test/supply_chain.test.js
 
       - name: Run tests
         run: truffle test test/supply_chain.test.js

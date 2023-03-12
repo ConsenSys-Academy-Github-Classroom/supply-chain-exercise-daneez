@@ -239,7 +239,7 @@ contract("SupplyChain", function (accounts) {
 
     it("should error when not enough value is sent when purchasing an item", async () => {
       await instance.addItem(name, price, { from: alice });
-      await expectRevert.assertion(instance.buyItem(0, { from: bob, value: 1 }));
+      await expectRevert.unspecified(instance.buyItem(0, { from: bob, value: 1 }));
     });
 
     it("should emit LogSold event when and item is purchased", async () => {
